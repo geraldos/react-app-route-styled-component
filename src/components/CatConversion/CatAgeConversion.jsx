@@ -42,9 +42,9 @@ function CatAgeConversion() {
   };
 
   const calculate = () => {
-    if (age == 1) {
+    if (age === "1") {
       setResult(15);
-    } else if (age == 2) {
+    } else if (age === "2") {
       setResult(24);
     } else if (age >= 3) {
       setResult(24 + (age - 2) * 4);
