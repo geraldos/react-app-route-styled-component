@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import styled from "styled-components";
 
@@ -34,16 +34,43 @@ const Button = styled.button`
 `;
 
 function CatAgeConversion() {
+  const [result, setResult] = useState(0);
+  const [age, setAge] = useState(0);
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
+  const calculate = () => {
+    if (age == 1) {
+      setResult(15);
+    } else if (age == 2) {
+      setResult(24);
+    } else if (age >= 3) {
+      setResult(24 + (age - 2) * 4);
+    }
+  };
   return (
     <div>
       <H1>Cat Age conversion</H1>
 
       <Div>
-        <Input placeholder="Cat Age.." type="text"></Input>
+        <Input
+          type="number"
+          name="age"
+          placeholder="Umur Kucing ...."
+          onChange={handleChange}
+        ></Input>
       </Div>
 
       <Div>
-        <Button type="submit">Calculate</Button>
+        <Button type="submit" onClick={calculate}>
+          Calculate
+        </Button>
+      </Div>
+
+      <Div>
+        <p>Umur Manusia sama dengan {result}</p>
       </Div>
     </div>
   );

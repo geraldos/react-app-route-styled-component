@@ -41,7 +41,7 @@ function BMI() {
   });
 
   function calculate() {
-    let results = values.weight / Math.pow(values.height, 2);
+    let results = values.weight / (Math.pow(values.height, 2) * 0.0001);
 
     if (results < 17) {
       setResult("BMI Kamu ialah Kurus, kekurangan berat badan berat");

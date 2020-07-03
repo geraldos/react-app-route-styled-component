@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import styled from "styled-components";
 
@@ -34,17 +34,59 @@ const Button = styled.button`
 `;
 
 function TextTransform() {
+  const [data, setData] = useState({ text: "", result: "" });
+
+  const handleChange = (event) => {
+    setData({ ...data, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const split = data.text.split("");
+    const result = split
+      .map((item) => {
+        if (item.match(/[A-Z]/)) {
+          item = item.toLowerCase();
+        } else {
+          item = item.toUpperCase();
+        }
+
+        return item;
+      })
+      .join("");
+
+    setData({
+      ...data,
+      result: result,
+    });
+  };
+
   return (
     <div>
       <H1>Text Transform Apps</H1>
 
-      <Div>
-        <Input placeholder="Text..." type="text"></Input>
-      </Div>
+      <form onKeyUp={handleSubmit}>
+        <Div>
+          <Input
+            placeholder="Text..."
+            type="text"
+            name="text"
+            onChange={handleChange}
+            value={data.text}
+          ></Input>
+        </Div>
 
-      <Div>
-        <Button type="submit">Calculate</Button>
-      </Div>
+        <Div>
+          <Button type="submit">Calculate</Button>
+        </Div>
+
+        <Div>
+          <p>
+            Transform text {data.text} is {data.result}
+          </p>
+        </Div>
+      </form>
     </div>
   );
 }
