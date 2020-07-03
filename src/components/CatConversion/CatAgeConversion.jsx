@@ -70,7 +70,7 @@ function CatAgeConversion() {
       </Div>
 
       <Div>
-        <p>Umur Manusia sama dengan {result}</p>
+        <p>Umur Manusia = {result}</p>
       </Div>
     </div>
   );

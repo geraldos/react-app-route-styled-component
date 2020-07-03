@@ -79,7 +79,6 @@ function BMI() {
       <Div>
         <Input
           placeholder="Weight in kg"
-          type="weight"
           name="weight"
           type="text"
           onChange={handleChange}
