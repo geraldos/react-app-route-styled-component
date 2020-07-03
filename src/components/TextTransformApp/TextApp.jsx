@@ -66,27 +66,27 @@ function TextTransform() {
     <div>
       <H1>Text Transform Apps</H1>
 
-      <form onKeyUp={handleSubmit}>
-        <Div>
-          <Input
-            placeholder="Text..."
-            type="text"
-            name="text"
-            onChange={handleChange}
-            value={data.text}
-          ></Input>
-        </Div>
+      <Div>
+        <Input
+          placeholder="Text..."
+          type="text"
+          name="text"
+          onChange={handleChange}
+          value={data.text}
+        ></Input>
+      </Div>
 
-        <Div>
-          <Button type="submit">Calculate</Button>
-        </Div>
+      <Div>
+        <Button type="submit" onClick={handleSubmit}>
+          Transform
+        </Button>
+      </Div>
 
-        <Div>
-          <p>
-            Transform text {data.text} is {data.result}
-          </p>
-        </Div>
-      </form>
+      <Div>
+        <p>
+          Transform text {data.text} is {data.result}
+        </p>
+      </Div>
     </div>
   );
 }
